@@ -61,8 +61,6 @@ jobs:
         valueFile: 'secret-opaque.yaml'
         changes: |
           {
-            "stringData['MONGODB_CONN_STRING']": "${{ secrets.MONGODB_CONN_STRING }}",
-            "stringData['MONGODB_DB']": "${{ secrets.MONGODB_DB }}",
             "stringData['NODE_ENV']": "${{ secrets.NODE_ENV }}",
             "stringData['POSTGRES_DB']": "${{ secrets.POSTGRES_DB }}",
             "stringData['POSTGRES_DB_HOST']": "${{ secrets.POSTGRES_DB_HOST }}",
@@ -77,9 +75,4 @@ jobs:
       run: |
         kubectl apply -f secret-opaque.yaml
         kubectl apply -f k8s/
-
-    - name: Describe Kubernetes Load Balancer
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: |
-        kubectl describe services app-load-balancer
 
