@@ -56,3 +56,23 @@ spec:
                 secretKeyRef:
                   name: secret-clientes
                   key: POSTGRES_DB_PASSWORD                  
+            - name: SQS_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: secret-clientes
+                  key: SQS_REGION                  
+            - name: SQS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: secret-clientes
+                  key: SQS_ACCESS_KEY_ID                  
+            - name: SQS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secret-clientes
+                  key: SQS_SECRET_ACCESS_KEY                  
+            - name: QUEUE_ANONIMIZACAO_CLIENTE
+              valueFrom:
+                secretKeyRef:
+                  name: secret-clientes
+                  key: QUEUE_ANONIMIZACAO_CLIENTE                  
